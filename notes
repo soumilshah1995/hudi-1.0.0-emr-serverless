@@ -1,0 +1,19 @@
+
+
+# Steps
+# Download Sample dataset and Upload into folder /raw
+https://drive.google.com/drive/folders/1BwNEK649hErbsWcYLZhqCWnaXFX3mIsg?usp=share_link
+
+# Download jar and copy Jar into  S3
+curl -o hudi-utilities-slim-bundle_2.12-1.0.0.jar https://repo1.maven.org/maven2/org/apache/hudi/hudi-utilities-slim-bundle_2.12/1.0.0/hudi-utilities-slim-bundle_2.12-1.0.0.jar && aws s3 cp hudi-utilities-slim-bundle_2.12-1.0.0.jar s3://soumilshah-dev-1995/jar/
+curl -o hudi-spark3.5-bundle_2.12-1.0.0.jar  https://repo1.maven.org/maven2/org/apache/hudi/hudi-spark3.5-bundle_2.12/1.0.0/hudi-spark3.5-bundle_2.12-1.0.0.jar && aws s3 cp hudi-spark3.5-bundle_2.12-1.0.0.jar s3://soumilshah-dev-1995/jar/
+
+
+# COPY config file to S3
+aws s3 cp \
+    /Users/soumilshah/IdeaProjects/emr-labs/hudi_1_0_minio/streamer/emr/hudi_invoice.props \
+    s3://soumilshah-dev-1995/props/hudi_invoice.props
+
+
+# Run Job
+python3 /Users/soumilshah/IdeaProjects/emr-labs/hudi_1_0_minio/streamer/emr/fire_job.py

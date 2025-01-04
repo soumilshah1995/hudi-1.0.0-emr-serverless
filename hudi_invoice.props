@@ -1,0 +1,6 @@
+hoodie.datasource.write.keygenerator.class=org.apache.hudi.keygen.SimpleKeyGenerator
+hoodie.datasource.write.recordkey.field=invoiceid
+hoodie.datasource.write.partitionpath.field=destinationstate
+hoodie.streamer.source.dfs.root=s3://<BUCKET>/raw/
+hoodie.streamer.write.precombine.field=replicadmstimestamp
+
